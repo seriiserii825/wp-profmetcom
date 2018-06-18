@@ -134,9 +134,9 @@
 					</div>
 					<!--row-->
 					<div class="row">
-						<h1 class="main-title">Железное Решение для вашего бизнеса</h1>
+						<h1 class="main-title"><?php bloginfo('description'); ?></h1>
 						<div class="logo">
-							<img src="<?php bloginfo('template_url');?>/assets/i/logo.png" alt="">
+							<?php the_custom_logo(); ?>
 						</div>
 					</div><!--row-->
 					<div class="row">
@@ -154,186 +154,26 @@
 		</header>
 	</div>
 	<div class="section">
-		<!--<div class="menu-bottom white">
-					<div class="container">
-								<div class="row">
-											&lt;!&ndash;menu-bar&ndash;&gt;
-											<div class="menu-bar">
-														<div class="close-menu">
-																	<span></span>
-																	<span></span>
-																	<span></span>
-														</div>
-														&lt;!&ndash;menu&ndash;&gt;
-														<ul class="menu">
-																	<li><a href="catalog.html">Каталог</a></li>
-																	<li><a href="news-page.html">Новости и акции</a></li>
-																	<li><a href="contacts.html">Контакты</a></li>
-														</ul>
-														&lt;!&ndash;menu&ndash;&gt;
-														<div class="logo-small">
-																	<div class="logo-small__img">
-																				<a href="index.html">
-																							<img src="<?php bloginfo('template_url');?>/assets/i/logo.png" alt="">
-																				</a>
-																	</div>
-																	<div class="logo-small__content">
-																				<h5 class="logo-small__title">ПрофМетКом</h5>
-																				<p class="logo-small__text">
-																							Оборудование <br> для бизнеса
-																				</p>
-																	</div>
-																	&lt;!&ndash;logo-small__content&ndash;&gt;
-														</div>
-														&lt;!&ndash;logo-small&ndash;&gt;
-														&lt;!&ndash;feedback&ndash;&gt;
-														<div class="feedback">
-																			<span class="phone">
-																						<a href="tel:+ 7 (4912) 123-45-67">
-																									<i class="icon-phone"></i>
-																									+ 7 (4912) 123-45-67
-																						</a>
-																			</span>
-																	<div class="btn-wrap">
-																				<a href="#" class="btn btn&#45;&#45;green show-modal">
-																							<i class="icon-mail"></i>
-																							<span>Написать нам</span>
-																				</a>
-																	</div>
-																	&lt;!&ndash;btn-wrap&ndash;&gt;
-														</div>
-														&lt;!&ndash;feedback&ndash;&gt;
-											</div>
-											&lt;!&ndash;menu-bar&ndash;&gt;
-								</div>
-								&lt;!&ndash;row&ndash;&gt;
-					</div>
-		</div>-->
 		<!--productions-->
 		<div class="productions">
 			<div class="container-big">
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-1.png" alt="">
+				<?php $categories = get_categories(['orderby'=>'ID', 'exclude' => '2']); ?>
+				<?php if(!empty($categories)): ?>
+					<?php foreach($categories as $category): ?>
+						<?php if (function_exists('get_tax_images')) $img_html = get_tax_images($category->term_id ,'full'); ?>
+
+						<div class="productions__item">
+							<div class="productions__content">
+								<div class="img-wrap">
+									<?php echo $img_html[0]; ?>
+								</div>
+								<h5 class="title-very-small"><a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name; ?></a></h5>
+							</div>
 						</div>
-						<h5 class="title-very-small"><a href="#">Металлические шкафы</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-2.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Сейфы</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-3.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Оружейные шкафы и сейфы</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-4.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Металлические стеллажи</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-5.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Верстаки</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-6.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Промышленная мебель.
-							антистатическое оснащение</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-7.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Медицинская мебель</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-8.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Торговое оборудование</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-9.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Техника для склада</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-10.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Колеса</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-11.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Банковcкое оборудование</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-12.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Прочая продукция</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-13.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Пластиковая тара</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-14.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Офисная мебель</a></h5>
-					</div>
-				</div>
-				<div class="productions__item">
-					<div class="productions__content">
-						<div class="img-wrap">
-							<img src="<?php bloginfo('template_url');?>/assets/i/productions/production-15.png" alt="">
-						</div>
-						<h5 class="title-very-small"><a href="#">Специальные строительные
-							конструкции</a></h5>
-					</div>
-				</div>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<h2>В категориях нет записией</h2>
+				<?php endif; ?>
 			</div>
 		</div>
 		<!--productions-->

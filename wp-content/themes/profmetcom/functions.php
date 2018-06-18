@@ -2,6 +2,8 @@
 
 require_once __DIR__.'/inc/scripts.php';
 
+add_filter('show_admin_bar', '__return_false'); // отключить
+
 
 if ( ! function_exists( 'profmetcom_setup' ) ) :
 	/**
