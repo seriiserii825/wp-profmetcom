@@ -14,7 +14,7 @@ function profmetcom_scripts() {
     wp_enqueue_script( 'profmetcom-jquery-fullPage', get_template_directory_uri().'/assets/libs/jqueryFullPage/jquery.fullPage.js', ['profmetcom-jquery'], 'null', true );
     wp_enqueue_script( 'profmetcom-jquery-easyScroll', get_template_directory_uri().'/assets/libs/jquery-easy-scroll/jquery.easeScroll.js', ['profmetcom-jquery'], 'null', true );
 
-    if(is_home() && is_front_page()){
+    if(is_home() || is_front_page()){
         wp_enqueue_script( 'profmetcom-index', get_template_directory_uri().'/assets/js/index.js', ['profmetcom-jquery'], 'null', true );
     }
     wp_enqueue_script( 'profmetcom-main', get_template_directory_uri().'/assets/js/main.js', ['profmetcom-jquery'], 'null', true );
